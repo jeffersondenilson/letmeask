@@ -29,6 +29,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
+          // TODO: usar toast?
           throw new Error('Missing information from Google Account.');
         }
 
@@ -52,6 +53,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       const { displayName, photoURL, uid } = result.user;
 
       if (!displayName || !photoURL) {
+        // TODO: usar toast?
         throw new Error('Missing information from Google Account.');
       }
 
