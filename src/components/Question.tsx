@@ -1,16 +1,15 @@
 import { ReactNode } from 'react';
 
-import '../styles/question';
+import '../styles/question.scss';
 
 type QuestionProps = {
-  id: string;
   content: string;
   author: {
     name: string;
     avatar: string;
   }
-  isHighlighted: boolean;
-  isAnswered: boolean;
+  // isHighlighted: boolean;
+  // isAnswered: boolean;
   children?: ReactNode;
 }
 

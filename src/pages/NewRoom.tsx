@@ -31,7 +31,7 @@ export default function NewRoom() {
       authorId: user?.id
     });
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
@@ -55,7 +55,7 @@ export default function NewRoom() {
               onChange={event => setNewRoom(event.target.value)}
               value={newRoom}
             />
-            <Button type="submit">
+            <Button type="submit" disabled={!user}>
               Criar sala
             </Button>
           </form>

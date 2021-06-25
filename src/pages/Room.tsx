@@ -1,4 +1,4 @@
-import { FormEvent, useState, useEffect } from 'react';
+import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Button from '../components/Button';
@@ -18,10 +18,14 @@ type RoomParams = {
 export default function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
-  const { user } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
   const { title, questions } = useRoom(roomId);
 
   const [newQuestion, setNewQuestion] = useState('');
+
+  const handleSignIn = async () => {
+    await signInWithGoogle();
+  }
 
   const handleSendQuestion = async (event: FormEvent) => {
     event.preventDefault();
@@ -91,8 +95,9 @@ export default function Room() {
               </div>
             ) : (
               <span>
-                {/*TODO: signInWithGoogle*/}
-                Para enviar uma pergunta, <button>faça seu login</button>.
+                Para enviar uma pergunta, <button onClick={handleSignIn}>
+                  faça seu login
+                </button>.
               </span>
             ) }
             <Button type="submit" disabled={!user}>
@@ -102,7 +107,7 @@ export default function Room() {
         </form>
 
         <div className="question-list">
-          { question.map(question => {
+          { questions.map(question => {
             return (
               <Question
                 key={question.id}
@@ -110,10 +115,10 @@ export default function Room() {
                 author={question.author}
               >
                 <button
-                  className={`like-button ${question.hasLiked ? 'liked' : ''}`}
+                  className={`like-button ${question.likeId ? 'liked' : ''}`}
                   type="button"
                   aria-label="Marcar como gostei"
-                  onClick={() => handleLikeQuestion(question.id)}
+                  onClick={() => handleLikeQuestion(question.id, question.likeId)}
                 >
                   {question.likeCount > 0 && <span>{question.likeCount}</span>}
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,6 +11,9 @@ type FirebaseQuestions = Record<string, {
   }
   isHighlighted: boolean;
   isAnswered: boolean;
+  likes: Record<string, {
+    authorId: string;
+  }>
 }>
 
 type QuestionType = {
@@ -21,7 +24,9 @@ type QuestionType = {
     avatar: string;
   }
   isHighlighted: boolean;
-  isAnswered: boolean; 
+  isAnswered: boolean;
+  likeCount: number;
+  likeId: string | undefined;
 }
 
 export function useRoom(roomId: string) {
@@ -29,6 +34,7 @@ export function useRoom(roomId: string) {
 
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');
+  const [isAdmin, setIsAdmin] = useState<boolean | undefined>();
 
   // receber informações da sala quando mudar
   useEffect(() => {
@@ -56,6 +62,7 @@ export function useRoom(roomId: string) {
 
       setTitle(databaseRoom.title);
       setQuestions(parsedQuestions);
+      setIsAdmin(databaseRoom.authorId === user?.id);
     });
     
     return () => {
@@ -64,5 +71,5 @@ export function useRoom(roomId: string) {
 
   }, [roomId, user?.id]);
 
-  return { title, questions };
+  return { title, questions, isAdmin };
 }
