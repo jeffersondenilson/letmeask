@@ -1,8 +1,11 @@
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import cx from 'classnames';
 
 import Button from '../components/Button';
+import ToggleDarkThemeButton from '../components/ToggleDarkThemeButton';
 import { useAuth } from '../hooks/useAuth';
+import { useDarkTheme } from '../hooks/useDarkTheme';
 import { database } from '../services/firebase';
 
 import illustrationImg from '../assets/images/illustration.svg';
@@ -13,6 +16,7 @@ import '../styles/auth.scss';
 export default function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
+  const { isDarkTheme } = useDarkTheme();
 
   const [roomCode, setRoomCode] = useState('');
 
@@ -50,13 +54,14 @@ export default function Home() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={cx({ dark: isDarkTheme })}>
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo real</p>
       </aside>
       <main>
+        <ToggleDarkThemeButton />
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button className="create-room" onClick={handleCreateRoom}>
@@ -70,6 +75,7 @@ export default function Home() {
               placeholder="Digite o código da sala"
               onChange={event => setRoomCode(event.target.value)}
               value={roomCode}
+              className={cx({ dark: isDarkTheme })}
             />
             <Button type="submit">
               Entrar na sala

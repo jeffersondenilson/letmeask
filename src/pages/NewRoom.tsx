@@ -1,10 +1,11 @@
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import cx from 'classnames';
 
 import Button from '../components/Button';
+import ToggleDarkThemeButton from '../components/ToggleDarkThemeButton';
 import { useAuth } from '../hooks/useAuth';
+import { useDarkTheme } from '../hooks/useDarkTheme';
 import { database } from '../services/firebase';
 
 import illustrationImg from '../assets/images/illustration.svg';
@@ -14,6 +15,7 @@ import '../styles/auth.scss';
 export default function NewRoom() {
   const history = useHistory();
   const { user } = useAuth();
+  const { isDarkTheme } = useDarkTheme();
   const [newRoom, setNewRoom] = useState('');
 
   const handleCreateRoom = async (event: FormEvent) => {
@@ -35,7 +37,7 @@ export default function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={cx({ dark: isDarkTheme })}>
       <aside>
         <img
           src={illustrationImg}
@@ -45,6 +47,7 @@ export default function NewRoom() {
         <p>Tire as dúvidas da sua audiência em tempo real</p>
       </aside>
       <main>
+        <ToggleDarkThemeButton />
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
@@ -54,12 +57,13 @@ export default function NewRoom() {
               placeholder="Nome da sala"
               onChange={event => setNewRoom(event.target.value)}
               value={newRoom}
+              className={cx({ dark: isDarkTheme })}
             />
             <Button type="submit" disabled={!user}>
               Criar sala
             </Button>
           </form>
-          <p>
+          <p className={cx({ dark: isDarkTheme })}>
             Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
           </p>
         </div>

@@ -3,6 +3,15 @@
   align-items: stretch;
   height: 100vh;
 
+  &.dark {
+    background-color: #394551;
+    color: white;
+
+    .separator {
+      color: white;
+    }
+  }
+
   aside {
     flex: 7;
     background: #835afd;
@@ -63,6 +72,12 @@
         padding: 0 16px;
         background: #fff;
         border: 1px solid #a8a8b3;
+
+        &.dark {
+          background-color: #394551;
+          color: white;
+          border-color: white;
+        }
       }
 
       button {
@@ -78,6 +93,10 @@
       font-size: 14px;
       color: #737388;
       margin-top: 16px;
+
+      &.dark {
+        color: white;
+      }
 
       a {
         color: #e559f9;
