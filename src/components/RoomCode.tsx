@@ -1,8 +1,11 @@
+import cx from 'classnames';
+
 import copyImg from '../assets/images/copy.svg';
 import '../styles/room-code.scss';
 
 type RoomCodeProps = {
   code: string;
+  isDark?: boolean;
 }
 
 export default function RoomCode(props: RoomCodeProps) {
@@ -11,7 +14,12 @@ export default function RoomCode(props: RoomCodeProps) {
   }
 
   return (
-    <button className="room-code" onClick={copyRoomCodeToClipboard}>
+    <button className={cx(
+        'room-code',
+        { dark: props.isDark }
+      )}
+      onClick={copyRoomCodeToClipboard}
+    >
       <div>
         <img src={copyImg} alt="Copy room code" />
       </div>

@@ -8,9 +8,15 @@
     margin-top: 8px;
   }
 
+  &.dark {
+    background: #394551;
+    border: 1px solid white;
+  }
+
   &.highlighted {
-    background: #f4f0ff;
-    border: 1px solid #835afd;
+    // background: #f4f0ff;
+    background: #bfacf7;
+    border: 2px solid #835afd;
 
     footer .user-info span {
       color: #29292e;
@@ -18,11 +24,16 @@
   }
 
   &.answered {
-    background: #dbdcdd;
+    // background: #dbdcdd;
+    background: #aeafb1;
   }
 
   p {
     color: #29292e;
+
+    &.dark {
+      color: white;
+    }
   }
 
   footer {
@@ -45,6 +56,10 @@
         margin-left: 8px;
         color: #737380;
         font-size: 14px;
+
+        &.dark {
+          color: white;
+        }
       }
     }
 
