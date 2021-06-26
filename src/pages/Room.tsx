@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import cx from 'classnames';
 
 import Button from '../components/Button';
 import RoomCode from '../components/RoomCode';
@@ -118,7 +119,6 @@ export default function Room() {
               >
                 { !question.isAnswered && (
                   <button
-                    className={`like-button ${question.likeId ? 'liked' : ''}`}
                     className={cx(
                       'like-button',
                       { liked: question.likeId }
