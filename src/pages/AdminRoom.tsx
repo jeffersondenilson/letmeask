@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import cx from 'classnames';
 
 import Button from '../components/Button';
+import ToggleDarkThemeButton from '../components/ToggleDarkThemeButton';
 import RoomCode from '../components/RoomCode';
 import Question from '../components/Question';
-// import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useDarkTheme } from '../hooks/useDarkTheme';
 import { database } from '../services/firebase';
 
 import answerImg from '../assets/images/answer.svg';
@@ -22,8 +24,8 @@ export default function AdminRoom() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const history = useHistory();
-  // const { user } = useAuth();
   const { title, questions, isAdmin } = useRoom(roomId);
+  const { isDarkTheme } = useDarkTheme();
 
   // leva o usuário que não criou a sala para a sala de perguntas
   useEffect(() => {
@@ -64,13 +66,20 @@ export default function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
+    <div
+      id="page-room"
+      className={cx({ dark: isDarkTheme })}
+      style={{ height: '100vh' }}
+    >
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <Link to="/">
+            <img src={logoImg} alt="Letmeask" />
+          </Link>
+          <ToggleDarkThemeButton />
           <div>
-            <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>
+            <RoomCode isDark={isDarkTheme} code={roomId} />
+            <Button isDark={isDarkTheme} isOutlined onClick={handleEndRoom}>
               Encerrar Sala
             </Button>
           </div>
@@ -79,7 +88,9 @@ export default function AdminRoom() {
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1 className={cx({ dark: isDarkTheme })}>
+            Sala {title}
+          </h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
         </div>
 
@@ -92,6 +103,7 @@ export default function AdminRoom() {
                 author={question.author}
                 isAnswered={question.isAnswered}
                 isHighlighted={question.isHighlighted}
+                isDark={isDarkTheme}
               >
                 { !question.isAnswered && (
                   <>
