@@ -69,8 +69,7 @@ export default function AdminRoom() {
   return (
     <div
       id="page-room"
-      className={cx({ dark: isDarkTheme })}
-      style={{ height: '100vh' }}
+      className={cx({ dark: isDarkTheme })}   
     >
       <header>
         <div className="content">
