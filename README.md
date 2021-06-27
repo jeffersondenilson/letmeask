@@ -16,17 +16,28 @@
 
 <h2 id="about">Sobre</h2>
 
-<p>
-  Projeto da NLW#6 na trilha de React. Uma aplicação de Q&A que permite 
-  usuários fazerem perguntas e selecionarem quais mais querem que sejam 
-  respondidas.
-  
+<div>
+  <p>
+    Projeto da NLW#6 na trilha de React. Uma aplicação de Q&A que permite 
+    usuários fazerem perguntas e selecionarem quais mais querem que sejam 
+    respondidas.
+  </p>
+
   <h3>
     <a href="https://letmeask-web-d72c1.web.app" target="_blank">
       Demo
     </a>
   </h3>
-</p>
+
+  <h3>Screenshots</h3>
+
+  <img src="screenshots/home-light.png" alt="Screenshot Home" />
+  <br>
+  <img src="screenshots/admin-dark.png" alt="Screenshot Admin" />
+  <br>
+  <img src="screenshots/user-light.png" alt="Screenshot User" />
+  <br>
+</div>
 
 <h2 id="features">Funcionalidades</h2>
 
