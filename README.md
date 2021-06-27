@@ -20,11 +20,12 @@
   Projeto da NLW#6 na trilha de React. Uma aplicação de Q&A que permite 
   usuários fazerem perguntas e selecionarem quais mais querem que sejam 
   respondidas.
-  <br>
-  <br>
-  <a href="https://letmeask-web-d72c1.web.app" target="_blank">
-    Demo
-  </a>
+  
+  <h3>
+    <a href="https://letmeask-web-d72c1.web.app" target="_blank">
+      Demo
+    </a>
+  </h3>
 </p>
 
 <h2 id="features">Funcionalidades</h2>
