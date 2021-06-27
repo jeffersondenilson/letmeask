@@ -15,7 +15,15 @@ export function DarkThemeContextProvider(props: DarkThemeContextProviderProps) {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean | undefined>();
 
   useEffect(() => {
-    // salvar e recuperar theme
+    if (isDarkTheme === undefined) {
+      // recupera quando inicia
+      const preferredTheme = localStorage.getItem('preferred-theme');
+      setIsDarkTheme(preferredTheme === 'dark');
+    } else {
+      // salva quando alterar o tema
+      const preferredTheme = isDarkTheme ? 'dark' : 'light';
+      localStorage.setItem('preferred-theme', preferredTheme);
+    }
   }, [isDarkTheme]);
 
   const toggleDarkTheme = () => {
