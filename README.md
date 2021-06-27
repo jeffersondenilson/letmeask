@@ -1,16 +1,18 @@
 <div id="top"></div>
 
 <h1>
-  LetMeAsk <img src="src/assets/images/logo-white.svg" alt="LetMeAsk logo" />
+  LetMeAsk <img align="right" src="src/assets/images/logo-white.svg" alt="LetMeAsk logo" />
 </h1>
 
-<a href="#about">Sobre</a> | 
-<a href="#features">Funcionalidades</a> | 
-<a href="#techs">Tecnologias</a> | 
-<a href="#requirements">Requisitos</a> | 
-<a href="#install">Instalação</a> | 
-<a href="#deploy">Deploy</a> | 
-<a href="#author">Autor</a>
+<p align="center">
+  <a href="#about">Sobre</a> | 
+  <a href="#features">Funcionalidades</a> | 
+  <a href="#techs">Tecnologias</a> | 
+  <a href="#requirements">Requisitos</a> | 
+  <a href="#install">Instalação</a> | 
+  <a href="#deploy">Deploy</a> | 
+  <a href="#author">Autor</a>
+</p>
 
 <h2 id="about">Sobre</h2>
 
