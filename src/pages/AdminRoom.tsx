@@ -14,6 +14,7 @@ import answerImg from '../assets/images/answer.svg';
 import checkImg from '../assets/images/check.svg';
 import deleteImg from '../assets/images/delete.svg';
 import logoImg from '../assets/images/logo.svg';
+import logoWhiteImg from '../assets/images/logo-white.svg';
 import '../styles/room.scss';
 
 type RoomParams = {
@@ -74,7 +75,7 @@ export default function AdminRoom() {
       <header>
         <div className="content">
           <Link to="/">
-            <img src={logoImg} alt="Letmeask" />
+            <img src={isDarkTheme ? logoWhiteImg : logoImg} alt="Letmeask" />
           </Link>
           <ToggleDarkThemeButton />
           <div>

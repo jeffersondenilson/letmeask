@@ -10,6 +10,7 @@ import { database } from '../services/firebase';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
+import logoWhiteImg from '../assets/images/logo-white.svg';
 import '../styles/auth.scss';
 
 export default function NewRoom() {
@@ -49,7 +50,7 @@ export default function NewRoom() {
       <main>
         <ToggleDarkThemeButton />
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          <img src={isDarkTheme ? logoWhiteImg : logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input

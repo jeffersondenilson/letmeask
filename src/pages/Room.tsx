@@ -12,6 +12,7 @@ import { useDarkTheme } from '../hooks/useDarkTheme';
 import { database } from '../services/firebase';
 
 import logoImg from '../assets/images/logo.svg';
+import logoWhiteImg from '../assets/images/logo-white.svg';
 import '../styles/room.scss';
 
 type RoomParams = {
@@ -74,7 +75,7 @@ export default function Room() {
       <header>
         <div className="content">
           <Link to="/">
-            <img src={logoImg} alt="Letmeask" />
+            <img src={isDarkTheme ? logoWhiteImg : logoImg} alt="Letmeask" />
           </Link>
           <ToggleDarkThemeButton />
           <RoomCode isDark={isDarkTheme} code={roomId} />
