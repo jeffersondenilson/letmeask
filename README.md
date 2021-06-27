@@ -1,7 +1,7 @@
 <div id="top"></div>
 
 <h1>
-  <img src="src/assets/images/logo.svg" alt="LetMeAsk logo" />
+  LetMeAsk <img src="src/assets/images/logo-white.svg" alt="LetMeAsk logo" />
 </h1>
 
 <a href="#about">Sobre</a> | 
@@ -18,6 +18,7 @@
   Projeto da NLW#6 na trilha de React. Uma aplicação de Q&A que permite 
   usuários fazerem perguntas e selecionarem quais mais querem que sejam 
   respondidas.
+  <br>
   <br>
   <a href="https://letmeask-web-d72c1.web.app" target="_blank">
     Demo
@@ -113,4 +114,5 @@ firebase deploy
   Jefferson Denilson
 </a>
 
+<br><br>
 <a href="#top">Voltar ao Topo</a>
